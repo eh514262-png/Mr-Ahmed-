@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مفاجأة لمستر أحمد</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body { 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f4f6f9; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            overflow-x: hidden;
+        }
+        
+        /* 1. تصميم الظرف */
+        .envelope-section { 
+            text-align: center; 
+            cursor: pointer; 
+            transition: transform 0.3s ease; 
+        }
+        .envelope-section:hover {
+            transform: scale(1.05);
+        }
+        .envelope { 
+            width: 220px; 
+            height: 150px; 
+            background: #e74c3c; 
+            border-radius: 10px; 
+            position: relative; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            color: white; 
+            font-weight: bold; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            font-size: 1.1rem;
+        }
+        
+        /* 2. شاشة الكروت والزرار */
+        .cards-section, .main-site { 
+            display: none; 
+            text-align: center; 
+            padding: 20px; 
+            width: 100%;
+            max-width: 800px;
+            animation: fadeIn 0.8s ease forwards; 
+        }
+        .card-container { 
+            display: flex; 
+            gap: 25px; 
+            justify-content: center; 
+            margin-bottom: 30px; 
+            flex-wrap: wrap; 
+        }
+        .card { 
+            background: white; 
+            padding: 25px; 
+            border-radius: 15px; 
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08); 
+            width: 300px; 
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card img { 
+            width: 100%; 
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px; 
+        }
+        .card h3 {
+            color: #2c3e50;
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+        .card p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+        
+        /* زر التالي */
+        .next-btn { 
+            padding: 12px 40px; 
+            font-size: 1.2rem; 
+            background-color: #27ae60; 
+            color: white; 
+            border: none; 
+            border-radius: 25px; 
+            cursor: pointer; 
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+            transition: all 0.3s ease;
+        }
+        .next-btn:hover {
+            background-color: #219653;
+            transform: scale(1.05);
+        }
+        
+        /* 3. الموقع الرئيسي من جوه */
+        .main-site h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+        .profile-img {
+            width: 180px; 
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            margin-bottom: 20px;
+        }
+        .main-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        .main-card p {
+            color: #444;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(10px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. شاشة الظرف -->
+    <div id="envelope-section" class="envelope-section" onclick="openCards()">
+        <div class="envelope">مفاجأة لمستر أحمد ✉️</div>
+    </div>
+
+    <!-- 2. شاشة الكروت المؤقتة -->
+    <div id="cards-section" class="cards-section">
+        <div class="card-container">
+            <!-- كارت رسالة الشكر (شمال) -->
+            <div class="card">
+                <h3>رسالة شكر وتقدير 🌟</h3>
+                <p>مستر أحمد العزيز، كلمات الشكر والثناء لا تكفي لتعبر عن مدى امتناننا لكل مجهود وتعب قدمته لينا. كنت دائماً نعم المعلم والقدوة.</p>
+            </div>
+            <!-- كارت صورة المستر (يمين) -->
+            <div class="card">
+                <!-- اكتب اسم الصورة اللي رفعتها من تليفونك بالظبط مكان كلمة: هنا_اسم_الصورة -->
+                <img src="./هنا_اسم_الصورة" alt="مستر أحمد">
+                <h3 style="margin-top: 15px;">مستر أحمد ✨</h3>
+            </div>
+        </div>
+        <button class="next-btn" onclick="goToSite()">التالي ←</button>
+    </div>
+
+    <!-- 3. الموقع الرئيسي من جوه -->
+    <div id="main-site" class="main-site">
+        <h1>أهلاً بك في موقع مستر أحمد الخاص 👑</h1>
+        <!-- اكتب اسم الصورة هنا برضه بالظبط مكان كلمة: هنا_اسم_الصورة -->
+        <img src="./هنا_اسم_الصورة" class="profile-img" alt="مستر أحمد">
+        
+        <div class="main-card">
+            <p>
+                يا مستر أحمد، أردنا أن نصنع لك هذا المكان البسيط لنعبر لك عن حبنا وتقديرنا الكبير.<br>
+                شكراً لأنك لم تبخل علينا بيوم من علمك أو وقتك، وشكراً لأنك جعلت رحلتنا التعليمية مليئة بالفائدة والدعم المستمر. <br>
+                <strong>تلاميذك المخلصين دائماً.</strong>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function openCards() {
+            document.getElementById('envelope-section').style.display = 'none';
+            document.getElementById('cards-section').style.display = 'block';
+        }
+        
+        function goToSite() {
+            document.getElementById('cards-section').style.display = 'none';
+            document.getElementById('main-site').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
